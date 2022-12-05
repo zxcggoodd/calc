@@ -1,4 +1,3 @@
-
 array_size = int(input('Сколько чисел в массиве?'))
 array = []
 while array !=0:
