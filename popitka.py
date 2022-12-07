@@ -1,27 +1,32 @@
-from collections import defaultdict
-import functools
-import math
-import numpy as np
-math_dir = defaultdict(list)
 def calculator():
     calcresult = float()
     x = float(input("Введите первое число "))
     y = float(input("Введите второе число "))
     z = (input("Введите действие "))
-    if z == "*" :    
+    if z == "*" :
             calcresult = (x*y)
-            math_dir["Умножение"].append(calcresult)
     elif z == "/" :
             calcresult = (x/y)
-            math_dir["Деление"].append(calcresult)
     elif z == "-":
             calcresult = (x - y)
-            math_dir["Вычитание"].append(calcresult)
-    elif z == "+": 
+    elif z == "+":
             calcresult = (x + y)
-            math_dir["Сумма"].append(calcresult)
     return calcresult
-array_size = int(input('Сколько операций?'))
+def math_array():
+    array_length=len(array)
+    Elements=0
+    mathDo = (input("Введите действие "))
+    for i in range(array_length):
+        if mathDo == "+":
+            Elements=array[i] + array[i-1]
+        elif mathDo == "*":
+            Elements=array[i] * array[i-1]
+        elif mathDo == "/":
+            Elements=array[i] / array[i-1]
+        elif mathDo == "-":
+            Elements=array[i] - array[i-1]
+    return Elements
+array_size = int(input('Сколько чисел в массиве?'))
 array = []
 while array !=0:
     calcresult=calculator()
@@ -29,6 +34,7 @@ while array !=0:
     array_size = array_size - 1
     if array_size == 0:
         break
+print(array)
 array_length=len(array)
-for k, v in math_dir.items():
-    print(f"{k} >>> {v}")
+Elements = math_array() 
+print(Elements)
